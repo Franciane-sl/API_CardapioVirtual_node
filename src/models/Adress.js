@@ -8,11 +8,11 @@ const Endereco = sequelize.define('Adress', {
     autoIncrement: true,
     primaryKey: true
   },
-  usuario_id: {
+  user_id: {
     type: DataTypes.INTEGER,
     allowNull: false,
     references: {
-      model: Usuario,
+      model: User,
       key: 'id'
     }
   },
