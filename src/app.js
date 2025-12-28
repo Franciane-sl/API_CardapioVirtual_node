@@ -4,9 +4,13 @@ require('./models')
 
 const errorHandler = require('./middleware/errorHandler');
 
+const categoryRoutes = require('./routes/CategoryRoutes')
+
 const app = express();
 
 app.use(express.json());
+
+app.use('/categories', categoryRoutes)
 
 sequelize.authenticate()
   .then(() => {
