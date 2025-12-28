@@ -1,4 +1,4 @@
-const CategoryService = require('./service/CategoryService');
+const CategoryService = require('../service/CategoryService');
 
 class CategoryController {
   async create(req, res, next) {

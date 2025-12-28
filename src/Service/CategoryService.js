@@ -1,5 +1,5 @@
-const Category = require('../../models/Category');
-const AppError = require('../../errors/AppError');
+const Category = require('../models/Category');
+const AppError = require('../errors/AppError');
 
 class CategoryService {
   async create({ nome, descricao }) {
