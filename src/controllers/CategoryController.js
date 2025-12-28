@@ -56,7 +56,7 @@ class CategoryController {
     try {
       const { id } = req.params;
 
-      await CategoryService.remove(id);
+      await CategoryService.delete(id);
 
       return res.status(204).send();
     } catch (error) {
