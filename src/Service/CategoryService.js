@@ -36,6 +36,22 @@ class CategoryService {
 
     return category;
   }
+
+  async update(id,{ nome,descricao }){
+    const category = await this.findById(id);
+
+    if (nome) category.nome = nome;
+    if (descricao) category.descricao = descricao;
+
+    await category.save();
+    return category;
+  }
+
+    async delete(id) {
+    const category = await this.findById(id);
+    await category.destroy();
+    return { message: 'Categoria deletada com sucesso.' };
+  }
 }
 
 module.exports = new CategoryService();
