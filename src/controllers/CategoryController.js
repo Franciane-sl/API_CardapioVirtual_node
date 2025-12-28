@@ -1,4 +1,4 @@
-const CategoryService = require('./service/CategoryService')
+const CategoryService = require('./service/CategoryService');
 
 class CategoryController {
   async create(req, res, next) {
@@ -31,6 +31,34 @@ class CategoryController {
 
       const category = await CategoryService.findById(id);
       return res.json(category);
+    } catch (error) {
+      next(error);
+    }
+  }
+
+  async update(req, res, next) {
+    try {
+      const { id } = req.params;
+      const { nome, descricao } = req.body;
+
+      const category = await CategoryService.update(id, {
+        nome,
+        descricao
+      });
+
+      return res.json(category);
+    } catch (error) {
+      next(error);
+    }
+  }
+
+  async remove(req, res, next) {
+    try {
+      const { id } = req.params;
+
+      await CategoryService.remove(id);
+
+      return res.status(204).send();
     } catch (error) {
       next(error);
     }
