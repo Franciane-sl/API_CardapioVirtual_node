@@ -27,6 +27,14 @@ const Product = sequelize.define('Product', {
   ativo: {
     type: DataTypes.BOOLEAN,
     defaultValue: true
+  },
+  category_id: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
+    references: {
+      model: Category,
+      key: 'id'
+    }
   }
 }, {
   tableName: 'products',
